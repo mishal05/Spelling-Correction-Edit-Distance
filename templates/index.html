@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spelling Correction using Edit Distance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Spelling Correction</h1>
+    <p>Enter a word and click Check</p>
+    <input type="text" id="word" placeholder="Enter word..." />
+    <div class="buttons">
+      <button id="checkBtn">Check</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const checkBtn = document.getElementById('checkBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const result = document.getElementById('result');
+    const wordBox = document.getElementById('word');
+
+    checkBtn.onclick = async function() {
+      const word = wordBox.value.trim();
+      if (!word) return alert("Please enter a word!");
+      const formData = new FormData();
+      formData.append('word', word);
+
+      const res = await fetch('/check', { method: 'POST', body: formData });
+      const data = await res.json();
+      result.innerHTML = '';
+
+      if (data.error) {
+        result.innerHTML = `<p class="error">${data.error}</p>`;
+        return;
+      }
+
+      if (data.correct) {
+        result.innerHTML = `
+          <div class="success">
+            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Correct" width="80">
+            <p>✅ "${word}" is spelled correctly!</p>
+          </div>`;
+      } else {
+        let sug = data.suggestions.map(s => `<span class="suggest">${s}</span>`).join(' ');
+        result.innerHTML = `
+          <div class="fail">
+            <img src="https://cdn-icons-png.flaticon.com/512/753/753345.png" alt="Incorrect" width="80">
+            <p>Did you mean: ${sug}</p>
+          </div>`;
+      }
+    };
+
+    resetBtn.onclick = () => {
+      wordBox.value = '';
+      result.innerHTML = '';
+    };
+  </script>
+</body>
+</html>
