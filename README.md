@@ -1,15 +1,15 @@
 
-## 🧠 Spelling Correction using Edit Distance
+## Spelling Correction using Edit Distance
 
-### Microproject for M.Tech – Introduction to AI and NLP
+### Microproject  – Introduction to AI and NLP
 
-### 📌 Objective
+### Objective
 
 To implement a **spelling correction system** using **Edit Distance**, **Regular Expressions**, and **Text Processing** techniques. The system checks a single word typed by the user and provides correction suggestions. If the word is correct, a success animation appears.
 
 ---
 
-### ⚙️ Features
+###  Features
 
 * Backend implemented with **Python (Flask)**
 * Edit distance–based **spelling correction algorithm**
@@ -24,7 +24,7 @@ To implement a **spelling correction system** using **Edit Distance**, **Regular
 
 ---
 
-### 🗂️ Folder Structure
+### Folder Structure
 
 ```
 SpellingCorrection/
@@ -43,7 +43,7 @@ SpellingCorrection/
 
 ---
 
-### 🧩 How It Works
+### How It Works
 
 1. User enters a single word in the text box.
 2. On clicking **Submit**, the Flask backend:
@@ -57,7 +57,7 @@ SpellingCorrection/
 
 ---
 
-### 🖥️ How to Run
+###  How to Run
 
 #### Step 1: Install Dependencies
 
@@ -92,7 +92,7 @@ Type a word → click **Submit** → see results and suggestions.
 
 ---
 
-### 📘 Core Concepts Used
+###  Core Concepts Used
 
 * **Regular Expressions (re module)** → to clean and validate input text
 * **Text Processing** → reading dictionary words and computing similarity
@@ -101,7 +101,7 @@ Type a word → click **Submit** → see results and suggestions.
 
 ---
 
-### 🚀 Future Improvements
+### Future Improvements
 
 * Support for multiple words or full sentences
 * Integration with larger language models for contextual correction
@@ -109,10 +109,10 @@ Type a word → click **Submit** → see results and suggestions.
 
 ---
 
-### 👩‍💻 Developed By
+### Developed By
 
 **Mary Mishal Francis**
-M.Tech – Introduction to AI and NLP
+
 
 ---
 
